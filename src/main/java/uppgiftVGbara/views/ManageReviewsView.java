@@ -2,6 +2,7 @@ package uppgiftVGbara.views;
 
 import uppgiftVGbara.components.GameForm;
 import uppgiftVGbara.entities.Review;
+import uppgiftVGbara.security.PrincipalUtil;
 import uppgiftVGbara.service.ReviewService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -14,21 +15,25 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
+import javax.annotation.security.PermitAll;
 
+@PermitAll
 @Route(value = "/managereviews", layout = AppView.class)
 public class ManageReviewsView extends VerticalLayout {
 
     Grid<Review> grid = new Grid<>(Review.class);
     ReviewService reviewService;
     GameForm gameForm;
+    PrincipalUtil principalUtil;
 
-    public ManageReviewsView(ReviewService reviewService) {
+    public ManageReviewsView(ReviewService reviewService, PrincipalUtil principalUtil) {
         this.reviewService = reviewService;
+        this.principalUtil = principalUtil;
         this.gameForm = new GameForm(reviewService, this);
         setAlignItems(Alignment.CENTER);
         add(new H2("Coming soon......"));
 
-        grid.setItems(reviewService.findAll());
+        grid.setItems(reviewService.findByUsername(PrincipalUtil.getName()));
         grid.removeAllColumns();
         grid.setWidthFull();
 
@@ -55,7 +60,7 @@ public class ManageReviewsView extends VerticalLayout {
         grid.addColumn(Review::getReviewPlus).setHeader("Plus");
         grid.addColumn(Review::getReviewMinus).setHeader("Minus");
         grid.addColumn(Review::getReviewScore).setHeader("Score");
-        grid.addColumn(Review::getAuthor).setHeader("Author");
+        grid.addColumn(Review::getAppUser).setHeader("Author");
         grid.asSingleSelect().addValueChangeListener(evt -> {
             gameForm.setReview(evt.getValue());
         });
@@ -68,7 +73,7 @@ public class ManageReviewsView extends VerticalLayout {
             GameForm dialogForm = new GameForm(reviewService, this);
 
             Review review = new Review();
-            review.setAuthor(review.getAuthor());
+            review.setAppUser(principalUtil.getLoggedInAppUser());
 
             dialogForm.setReview(review);
             dialog.add(dialogForm);
@@ -81,7 +86,7 @@ public class ManageReviewsView extends VerticalLayout {
 
 
     public void updateItems() {
-        grid.setItems(reviewService.findAll());
+        grid.setItems(reviewService.findByUsername(PrincipalUtil.getName()));
     }
 }
 

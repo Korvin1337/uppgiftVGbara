@@ -1,7 +1,10 @@
 package uppgiftVGbara.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class AppUser {
@@ -13,8 +16,16 @@ public class AppUser {
     @Column(nullable = false, unique = true)
     private String username;
 
-    public AppUser(String username) {
+    @Column
+    private String password;
+
+    @OneToMany(mappedBy = "appUser")
+    @JsonIgnoreProperties("appUser")
+    private Set<Review> reviews;
+
+    public AppUser(String username, String password) {
         this.username = username;
+        this.password = password;
     }
 
     public AppUser(){}
@@ -35,12 +46,22 @@ public class AppUser {
         this.username = username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "AppUser{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
+
 }
 

@@ -27,16 +27,17 @@ public class Review {
     /*@Size(min= 0, max= 5)*/
     private int ReviewScore;
 
-    @Column
-    private String author;
+    @ManyToOne
+    @JoinColumn(name = "appuser_id")
+    private AppUser appUser;
 
-    public Review(String gameTitle, String reviewText, String reviewPlus, String reviewMinus, int reviewScore, String author) {
+    public Review(String gameTitle, String reviewText, String reviewPlus, String reviewMinus, int reviewScore, AppUser appUser) {
         this.gameTitle = gameTitle;
         this.reviewText = reviewText;
         this.reviewPlus = reviewPlus;
         this.reviewMinus = reviewMinus;
         this.ReviewScore = reviewScore;
-        this.author = author;
+        this.appUser = appUser;
     }
 
     public Review() {
@@ -91,12 +92,12 @@ public class Review {
         ReviewScore = reviewScore;
     }
 
-    public String getAuthor() {
-        return author;
+    public AppUser getAppUser() {
+        return appUser;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 
     @Override
@@ -108,7 +109,7 @@ public class Review {
                 ", reviewPlus='" + reviewPlus + '\'' +
                 ", reviewMinus='" + reviewMinus + '\'' +
                 ", ReviewScore=" + ReviewScore +
-                ", author='" + author + '\'' +
+                ", appUser=" + appUser +
                 '}';
     }
 }

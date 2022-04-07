@@ -20,9 +20,9 @@ public class ReviewService {
         return reviewRepository.findAll();
     }
 
-    /*public List<Review> findByUsername(String username) {
-        return "";/*reviewRepository.findByAppUser_Username(username);
-    }*/
+    public List<Review> findByUsername(String username) {
+        return reviewRepository.findByAppUser_Username(username);
+    }
 
     public Review findReviewById(int id) {
         return reviewRepository.findById(id).orElseThrow();
@@ -45,8 +45,7 @@ public class ReviewService {
                 && changedReview.getReviewText().length() > 0
                 && changedReview.getReviewPlus() .length() > 0
                 && changedReview.getReviewMinus() .length() > 0
-                && changedReview.getReviewScore() >= 0 && changedReview.getReviewScore() <= 5
-                && changedReview.getAuthor().length() > 0)
+                && changedReview.getReviewScore() >= 0 && changedReview.getReviewScore() <= 5)
         {
             BeanUtils.copyProperties(changedReview, existingReview, "id");
         }

@@ -19,23 +19,23 @@ public class GameForm extends FormLayout {
     TextField reviewPlus = new TextField("reviewPlus");
     TextField reviewMinus = new TextField("reviewMinus");
     IntegerField reviewScore = new IntegerField("reviewScore");
-    TextField author = new TextField("author");
-    Button saveButton = new Button("Save");
     /*this.appUser = appUser;*/
+    Button saveButton = new Button("Save");
+
 
     Binder<Review> binder = new BeanValidationBinder<>(Review.class);
     ReviewService reviewService;
-    ManageReviewsView manageReviewView;
+    ManageReviewsView manageReviewsView;
 
-    public GameForm(ReviewService reviewService, ManageReviewsView manageReviewView) {
+    public GameForm(ReviewService reviewService, ManageReviewsView manageReviewsView) {
         this.reviewService = reviewService;
-        this.manageReviewView = manageReviewView;
+        this.manageReviewsView = manageReviewsView;
         binder.bindInstanceFields(this);
         setVisible(false);
 
-        saveButton.addClickListener(evt -> handleSave(manageReviewView));
+        saveButton.addClickListener(evt -> handleSave(manageReviewsView));
 
-        add(gameTitle, reviewText, reviewPlus, reviewMinus, reviewScore, author, saveButton);
+        add(gameTitle, reviewText, reviewPlus, reviewMinus, reviewScore, saveButton);
     }
 
     private void handleSave(ManageReviewsView manageReviewsView) {

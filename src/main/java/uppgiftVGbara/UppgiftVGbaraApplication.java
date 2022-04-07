@@ -1,5 +1,6 @@
 package uppgiftVGbara;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import uppgiftVGbara.entities.AppUser;
 import uppgiftVGbara.entities.Game;
 import uppgiftVGbara.entities.Review;
@@ -26,6 +27,9 @@ public class UppgiftVGbaraApplication {
     @Autowired
     ReviewRepository reviewRepository;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     public static void main(String[] args) {
         SpringApplication.run(UppgiftVGbaraApplication.class, args);
     }
@@ -35,16 +39,16 @@ public class UppgiftVGbaraApplication {
     CommandLineRunner init(AppUserRepository appUserRepository, GameRepository gameRepository, ReviewRepository reviewRepository) {
         return args -> {
 
-            AppUser Gunnar = new AppUser("Gunnar");
-            AppUser Alice = new AppUser("Alice");
+            AppUser Gunnar = new AppUser("Gunnar", passwordEncoder.encode("pass"));
+            AppUser Alice = new AppUser("Alice", passwordEncoder.encode("pass"));
             appUserRepository.saveAll(List.of(Gunnar, Alice));
 
             Game fifa22 = new Game("FIFA 22", "EA", 2021);
             Game eldenRing = new Game("Elden Ring", "Japanese", 2022);
             gameRepository.saveAll(List.of(fifa22, eldenRing));
 
-            Review fifa22Review = new Review("Fifa Suger", "Gillar Inte Fifa", "Inget", "Allt", 0, Gunnar.getUsername());
-            Review eldenRingReview = new Review("Elden Ring Bra", "Gillar Elden Ring", "Allt", "Inget", 4, Alice.getUsername());
+            Review fifa22Review = new Review("Fifa Suger", "Gillar Inte Fifa", "Inget", "Allt", 0, Gunnar);
+            Review eldenRingReview = new Review("Elden Ring Bra", "Gillar Elden Ring", "Allt", "Inget", 4, Alice);
             reviewRepository.saveAll(List.of(fifa22Review, eldenRingReview));
 
 

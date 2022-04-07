@@ -1,11 +1,12 @@
 package uppgiftVGbara.views;
 
+import com.vaadin.flow.server.auth.AnonymousAllowed;
 import uppgiftVGbara.service.ReviewService;
 import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
-
+@AnonymousAllowed
 @Route(value = "/reviews", layout = AppView.class)
 public class ReviewView extends VerticalLayout {
 
@@ -25,7 +26,7 @@ public class ReviewView extends VerticalLayout {
             Paragraph reviewScore = new Paragraph(String.valueOf(review.getReviewScore()));
 
             Paragraph writtenBy = new Paragraph("Written by: ");
-            Span author = new Span(review.getAuthor());
+            Span author = new Span(review.getAppUser().getUsername());
             author.getStyle().set("font-weight", "bold");
             writtenBy.add(author);
 

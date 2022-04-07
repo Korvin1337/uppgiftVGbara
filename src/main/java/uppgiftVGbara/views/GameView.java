@@ -1,11 +1,12 @@
 package uppgiftVGbara.views;
 
+import com.vaadin.flow.server.auth.AnonymousAllowed;
 import uppgiftVGbara.service.GameService;
 import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
-
+@AnonymousAllowed
 @Route(value = "/", layout = AppView.class)
 public class GameView extends VerticalLayout {
 
