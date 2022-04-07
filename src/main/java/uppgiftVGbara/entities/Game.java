@@ -1,4 +1,4 @@
-package uppgiftGbara.entities;
+package uppgiftVGbara.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

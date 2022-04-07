@@ -1,8 +1,8 @@
-package uppgiftGbara.views;
+package uppgiftVGbara.views;
 
-import uppgiftGbara.components.GameForm;
-import uppgiftGbara.entities.Review;
-import uppgiftGbara.service.ReviewService;
+import uppgiftVGbara.components.GameForm;
+import uppgiftVGbara.entities.Review;
+import uppgiftVGbara.service.ReviewService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dialog.Dialog;

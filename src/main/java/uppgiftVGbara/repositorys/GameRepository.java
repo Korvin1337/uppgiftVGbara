@@ -1,6 +1,6 @@
-package uppgiftGbara.repositorys;
+package uppgiftVGbara.repositorys;
 
-import uppgiftGbara.entities.Game;
+import uppgiftVGbara.entities.Game;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

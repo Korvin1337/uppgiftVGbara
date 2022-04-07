@@ -1,10 +1,7 @@
-package uppgiftGbara.entities;
+package uppgiftVGbara.entities;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 public class AppUser {

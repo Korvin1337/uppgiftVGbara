@@ -1,7 +1,7 @@
-package uppgiftGbara.service;
+package uppgiftVGbara.service;
 
-import uppgiftGbara.entities.Game;
-import uppgiftGbara.repositorys.GameRepository;
+import uppgiftVGbara.entities.Game;
+import uppgiftVGbara.repositorys.GameRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 

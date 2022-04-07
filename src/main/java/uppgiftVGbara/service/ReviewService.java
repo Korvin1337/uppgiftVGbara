@@ -1,7 +1,7 @@
-package uppgiftGbara.service;
+package uppgiftVGbara.service;
 
-import uppgiftGbara.entities.Review;
-import uppgiftGbara.repositorys.ReviewRepository;
+import uppgiftVGbara.entities.Review;
+import uppgiftVGbara.repositorys.ReviewRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 

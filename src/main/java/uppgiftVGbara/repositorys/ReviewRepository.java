@@ -1,6 +1,6 @@
-package uppgiftGbara.repositorys;
+package uppgiftVGbara.repositorys;
 
-import uppgiftGbara.entities.Review;
+import uppgiftVGbara.entities.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

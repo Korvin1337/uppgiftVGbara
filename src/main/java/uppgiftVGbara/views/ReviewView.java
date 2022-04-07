@@ -1,6 +1,6 @@
-package uppgiftGbara.views;
+package uppgiftVGbara.views;
 
-import uppgiftGbara.service.ReviewService;
+import uppgiftVGbara.service.ReviewService;
 import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;

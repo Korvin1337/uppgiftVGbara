@@ -1,11 +1,11 @@
-package uppgiftGbara;
+package uppgiftVGbara;
 
-import uppgiftGbara.entities.AppUser;
-import uppgiftGbara.entities.Game;
-import uppgiftGbara.entities.Review;
-import uppgiftGbara.repositorys.AppUserRepository;
-import uppgiftGbara.repositorys.GameRepository;
-import uppgiftGbara.repositorys.ReviewRepository;
+import uppgiftVGbara.entities.AppUser;
+import uppgiftVGbara.entities.Game;
+import uppgiftVGbara.entities.Review;
+import uppgiftVGbara.repositorys.AppUserRepository;
+import uppgiftVGbara.repositorys.GameRepository;
+import uppgiftVGbara.repositorys.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Bean;
 import java.util.List;
 
 @SpringBootApplication
-public class UppgiftGbaraApplication {
+public class UppgiftVGbaraApplication {
 
     @Autowired
     AppUserRepository appUserRepository;
@@ -27,7 +27,7 @@ public class UppgiftGbaraApplication {
     ReviewRepository reviewRepository;
 
     public static void main(String[] args) {
-        SpringApplication.run(UppgiftGbaraApplication.class, args);
+        SpringApplication.run(UppgiftVGbaraApplication.class, args);
     }
 
 
