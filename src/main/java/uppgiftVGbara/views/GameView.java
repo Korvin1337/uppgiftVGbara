@@ -12,8 +12,7 @@ public class GameView extends VerticalLayout {
 
     public GameView(GameService gameService) {
 
-        add(new H2("Games"));
-        add(new Hr());
+        add(new H1("Games"));
         add(new Hr());
 
         setAlignItems(Alignment.CENTER);

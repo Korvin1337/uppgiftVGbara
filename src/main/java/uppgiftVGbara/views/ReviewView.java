@@ -12,21 +12,21 @@ public class ReviewView extends VerticalLayout {
 
     public ReviewView(ReviewService reviewService) {
 
-        add(new H2("Reviews"));
+        add(new H1("Reviews"));
 
         setAlignItems(Alignment.CENTER);
 
         reviewService.findAll().forEach(review -> {
 
-            H2 gameTitle = new H2(review.getGameTitle());
+            H1 gameTitle = new H1(review.getGameTitle());
 
-            H4 reviewTextHeader = new H4("About The Game");
+            H3 reviewTextHeader = new H3("About The Game");
             Paragraph reviewText = new Paragraph(review.getReviewText());
-            H4 reviewPlusHeader = new H4("Positives");
+            H3 reviewPlusHeader = new H3("Positives");
             Paragraph reviewPlus = new Paragraph(review.getReviewPlus());
-            H4 reviewMinusHeader = new H4("Negatives");
+            H3 reviewMinusHeader = new H3("Negatives");
             Paragraph reviewMinus = new Paragraph(review.getReviewMinus());
-            H4 reviewScoreHeader = new H4("Rating");
+            H3 reviewScoreHeader = new H3("Rating");
             Paragraph reviewScore = new Paragraph("Score: " + String.valueOf(review.getReviewScore()) + "/5");
 
             Paragraph writtenBy = new Paragraph("Written by: ");
@@ -34,7 +34,7 @@ public class ReviewView extends VerticalLayout {
             author.getStyle().set("font-weight", "bold");
             writtenBy.add(author);
 
-            add(new Hr(), new Hr(), gameTitle, new Hr(),  new Hr(), reviewTextHeader, reviewText, new Hr(), reviewPlusHeader, reviewPlus, new Hr(), reviewMinusHeader, reviewMinus, new Hr(), reviewScoreHeader, reviewScore, writtenBy, new Hr());
+            add(new Hr(), gameTitle, reviewTextHeader, reviewText, reviewPlusHeader, reviewPlus, reviewMinusHeader, reviewMinus, reviewScoreHeader, reviewScore, writtenBy, new Hr(), new Hr());
 
         });
 
