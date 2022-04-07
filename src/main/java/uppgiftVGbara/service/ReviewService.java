@@ -33,6 +33,12 @@ public class ReviewService {
     }
 
     public Review save(Review review) {
+        if(review.getReviewScore() > 5) {
+            review.setReviewScore(5);
+        }
+        if(review.getReviewScore() < 0) {
+            review.setReviewScore(0);
+        }
         return reviewRepository.save(review);
     }
 

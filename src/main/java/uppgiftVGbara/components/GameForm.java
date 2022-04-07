@@ -14,12 +14,11 @@ import com.vaadin.flow.data.binder.Binder;
 
 public class GameForm extends FormLayout {
 
-    TextField gameTitle = new TextField("gameTitle");
-    TextArea reviewText = new TextArea("reviewText");
-    TextField reviewPlus = new TextField("reviewPlus");
-    TextField reviewMinus = new TextField("reviewMinus");
-    IntegerField reviewScore = new IntegerField("reviewScore");
-    /*this.appUser = appUser;*/
+    TextField gameTitle = new TextField("Game Title");
+    TextArea reviewText = new TextArea("About The Game");
+    TextField reviewPlus = new TextField("Positives");
+    TextField reviewMinus = new TextField("Negatives");
+    IntegerField reviewScore = new IntegerField("Score (0-5)");
     Button saveButton = new Button("Save");
 
 

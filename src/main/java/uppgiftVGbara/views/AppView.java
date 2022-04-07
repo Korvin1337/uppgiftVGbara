@@ -18,7 +18,7 @@ public class AppView extends AppLayout {
 
         HorizontalLayout navbarLayout = new HorizontalLayout();
 
-        navbarLayout.add(new DrawerToggle(), new H1("WELCOME TO TECHNICAL SUPPORT!!!"));
+        navbarLayout.add(new DrawerToggle(), new H1("Welcome To Game Reviews!"));
 
         Button loginButton = new Button("Login", evt -> UI.getCurrent().navigate(LoginView.class));
         Button logoutButton = new Button("Logout", evt -> PrincipalUtil.logout());

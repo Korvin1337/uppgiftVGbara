@@ -18,19 +18,23 @@ public class ReviewView extends VerticalLayout {
 
         reviewService.findAll().forEach(review -> {
 
-            H3 gameTitle = new H3(review.getGameTitle());
+            H2 gameTitle = new H2(review.getGameTitle());
 
+            H4 reviewTextHeader = new H4("About The Game");
             Paragraph reviewText = new Paragraph(review.getReviewText());
+            H4 reviewPlusHeader = new H4("Positives");
             Paragraph reviewPlus = new Paragraph(review.getReviewPlus());
+            H4 reviewMinusHeader = new H4("Negatives");
             Paragraph reviewMinus = new Paragraph(review.getReviewMinus());
-            Paragraph reviewScore = new Paragraph(String.valueOf(review.getReviewScore()));
+            H4 reviewScoreHeader = new H4("Rating");
+            Paragraph reviewScore = new Paragraph("Score: " + String.valueOf(review.getReviewScore()) + "/5");
 
             Paragraph writtenBy = new Paragraph("Written by: ");
             Span author = new Span(review.getAppUser().getUsername());
             author.getStyle().set("font-weight", "bold");
             writtenBy.add(author);
 
-            add(gameTitle, reviewText, reviewPlus, reviewMinus, reviewScore, writtenBy, new Hr());
+            add(new Hr(), new Hr(), gameTitle, new Hr(),  new Hr(), reviewTextHeader, reviewText, new Hr(), reviewPlusHeader, reviewPlus, new Hr(), reviewMinusHeader, reviewMinus, new Hr(), reviewScoreHeader, reviewScore, writtenBy, new Hr());
 
         });
 
