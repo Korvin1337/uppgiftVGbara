@@ -54,7 +54,7 @@ public class UppgiftVGbaraApplication {
             Review fifa22Review = new Review("FIFA 22", "Gillar Inte Fifa", "Inget", "Allt", 0, Gunnar);
             Review eldenRingReview = new Review("Elden Ring", "Gillar Elden Ring", "Allt", "Inget", 4, Alice);
             reviewRepository.saveAll(List.of(fifa22Review, eldenRingReview));*/
-            
+
 
 
         };
