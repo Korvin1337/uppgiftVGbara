@@ -61,9 +61,7 @@ public class ManageReviewsView extends VerticalLayout {
         grid.addColumn(Review::getReviewMinus).setHeader("Minus");
         grid.addColumn(Review::getReviewScore).setHeader("Score");
         grid.addColumn(Review::getAppUser).setHeader("Author");
-        grid.asSingleSelect().addValueChangeListener(evt -> {
-            gameForm.setReview(evt.getValue());
-        });
+        grid.asSingleSelect().addValueChangeListener(evt -> gameForm.setReview(evt.getValue()));
 
         HorizontalLayout mainContent = new HorizontalLayout(grid, gameForm);
         mainContent.setSizeFull();
